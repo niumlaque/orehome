@@ -1,0 +1,96 @@
+.content {
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+}
+
+.box-container {
+  display: grid;
+  grid-template-rows: max-content max-content max-content;
+  margin: 3.5em 1.4em 0em 1.4em;
+  max-width: 35em;
+  min-width: 14em;
+  row-gap: 1em;
+  width: 80%;
+}
+
+.r0 {
+  display: block;
+}
+
+.glogo {
+  color: #ccc;
+  font-size: 1.5em;
+  padding: 0em 0.4em;
+}
+
+.r1 {
+  display: block;
+}
+
+input[type="text"] {
+  border: 2px solid #333;
+  box-sizing: border-box;
+  border-radius: 0.3em;
+  outline: none;
+  padding: 0.5em;
+  transition: 0.3s ease-in-out;
+  width: 100%;
+}
+
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 0.5em 0 dodgerBlue;
+}
+
+.input-with-icon input[type="text"] {
+  background-color: #ccc;
+  padding-left: 3em;
+}
+
+.input-with-icon {
+  margin: 0em;
+  position: relative;
+  width: 100%;
+}
+
+.input-with-icon i {
+  color: #333;
+  font-size: 1.5em;
+  left: 0;
+  padding: 0.4em 0.5em;
+  position: absolute;
+  transition: 0.3s ease-in-out;
+}
+
+.input-with-icon input[type="text"]:focus + i {
+  color: dodgerBlue;
+}
+
+.r2 {
+  display: flex;
+  justify-content: center;
+}
+
+.button01 div {
+  align-items: center;
+  background: #ccc;
+  border: 2px solid #333;
+  border-radius: 0.3em;
+  color: #333;
+  display: flex;
+  font-weight: 500;
+  justify-content: space-around;
+  max-width: 56em;
+  padding: 0.2em 1.5em;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  user-select: none;
+}
+
+.button01 div:hover {
+  border: 2px solid dodgerBlue;
+  color: dodgerBlue;
+  cursor : pointer;
+}
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="static/css/modern-css-reset/reset.min.css">
+    <link type="text/css" rel="stylesheet" href="static/css/orehome/search.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <script type="text/javascript" src="static/js/search.js"></script>
+    <title>Search</title>
+  </head>
+  <body class="content" onload="init()">
+    <div class="box-container">
+      <div class="r0">
+        <i class="fa-brands fa-google glogo"></i>
+      </div>
+      <div class="r1">
+        <div class="input-with-icon">
+          <input title="Search" type="text" id="q" autocomplete="off" onkeyup="searchFromInput(arguments[0])">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true" onclick="focusInput()"></i>
+        </div>
+      </div>
+      <div class="r2">
+        <div class="button01" onclick="search(getText())"><div>Search</div></div>
+      </div>
+    </div>
+  </body>
+</html>
+
