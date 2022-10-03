@@ -1,10 +1,10 @@
-.content {
+.wrapper {
   background-color: #333;
   display: flex;
   justify-content: center;
 }
 
-.box-container {
+.container {
   display: grid;
   grid-template-rows: max-content max-content max-content;
   margin: 3.5em 1.4em 0em 1.4em;
