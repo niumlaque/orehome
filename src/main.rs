@@ -1,12 +1,15 @@
 mod config;
+mod handlers;
 mod verbose;
-mod views;
+
+use actix_files::Files;
 use actix_web::{web, App, HttpResponse, HttpServer};
 use anyhow::Result;
 use clap::Parser;
 use config::Config;
 use std::env;
 use std::path::PathBuf;
+use tera::Tera;
 use verbose::Verbose;
 
 const DEFAULT_CONFIG_FILE: &str = "orehome.toml";
@@ -74,10 +77,15 @@ async fn main() -> Result<()> {
         println!("{}", config);
     }
 
+    let templates = Tera::new("templates/**/*")?;
     HttpServer::new(move || {
-        let app = App::new().default_service(web::route().to(HttpResponse::NotFound));
-        let app = app.app_data(web::Data::new(Verbose::new(verbose)));
-        views::register(app)
+        use handlers::*;
+        App::new()
+            .default_service(web::route().to(HttpResponse::NotFound))
+            .service(Files::new("/static", "./assets").show_files_listing())
+            .app_data(web::Data::new(templates.clone()))
+            .app_data(web::Data::new(Verbose::new(verbose)))
+            .route("/", web::get().to(search))
     })
     .workers(1)
     .bind(config.addr())?
